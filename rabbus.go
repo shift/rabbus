@@ -6,9 +6,9 @@ import (
 	"sync"
 	"time"
 
-	amqpWrap "github.com/rafaeljesus/rabbus/internal/amqp"
+	"github.com/prometheus/promu/util/retry"
+	amqpWrap "github.com/shift/rabbus/internal/amqp"
 
-	"github.com/rafaeljesus/retry-go"
 	"github.com/sony/gobreaker"
 	"github.com/streadway/amqp"
 )
@@ -148,10 +148,6 @@ type (
 )
 
 func (lc ListenConfig) validate() error {
-	if lc.Exchange == "" {
-		return ErrMissingExchange
-	}
-
 	if lc.Kind == "" {
 		return ErrMissingKind
 	}
