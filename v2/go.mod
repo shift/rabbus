@@ -1,4 +1,4 @@
-module github.com/shift/rabbus
+module github.com/shift/rabbus/v2
 
 go 1.15
 
